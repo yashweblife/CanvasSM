@@ -2,7 +2,8 @@
   "name": "canvassm",
   "version": "1.0.0",
   "description": "A simple library to work with html canvas",
-  "main": "index.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build":"tsc"
