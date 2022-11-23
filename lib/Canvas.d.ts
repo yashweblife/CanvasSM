@@ -1,5 +1,5 @@
-import { CircleInterface } from "./interfaces";
-import { Vector } from "./Vector";
+import { CircleInterface } from './interfaces';
+import { Vector } from './Vector';
 export declare class Canvas {
     private size;
     private dom;
