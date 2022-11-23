@@ -1,6 +1,16 @@
 import { Vector } from './Vector';
 import { Canvas } from './Canvas';
-import { CircleInterface, PolarInterface, ColorInterface, LineInterface, VectorInterface } from './interfaces';
-export { Vector, Canvas };
+import { Mouse } from './Mouse';
+import { PhysicsObject } from './PhysicsObject';
 
-export { CircleInterface, PolarInterface, ColorInterface, LineInterface, VectorInterface };
+import {
+  CircleInterface,
+  PolarInterface,
+  ColorInterface,
+  LineInterface,
+  VectorInterface,
+  RectInterface,
+} from './interfaces';
+export { Vector, Canvas, Mouse, PhysicsObject };
+
+export { CircleInterface, PolarInterface, ColorInterface, LineInterface, VectorInterface, RectInterface };
