@@ -36,37 +36,33 @@ export class Vector {
     return new Vector(this.x, this.y, this.z);
   };
   public static fromPolar = (r: number, theta: number) => {
-    let x = r * Math.cos(theta);
-    let y = r * Math.sin(theta);
+    const x = r * Math.cos(theta);
+    const y = r * Math.sin(theta);
     return new Vector(x, y);
   };
-  public static toPolar = (val:Vector) => {
-    return({r:val.mag, theta:Math.atan2(val.y,val.x)})
+  public static toPolar = (val: Vector) => {
+    return { r: val.mag, theta: Math.atan2(val.y, val.x) };
   };
   public static rand = (val: number) => {
-    return new Vector(
-      Math.random() * val,
-      Math.random() * val,
-      Math.random() * val
-    );
+    return new Vector(Math.random() * val, Math.random() * val, Math.random() * val);
   };
   public static randSigned = (val: number) => {
     return new Vector(
       (Math.random() - 0.5) * 2 * val,
       (Math.random() - 0.5) * 2 * val,
-      (Math.random() - 0.5) * 2 * val
+      (Math.random() - 0.5) * 2 * val,
     );
   };
   public static randArray = (size: number, val: number) => {
     const output: Vector[] = [];
-    for (var i = 0; i < size; i++) {
+    for (let i = 0; i < size; i++) {
       output.push(Vector.rand(val));
     }
     return output;
   };
   public static randSignedArray = (size: number, val: number) => {
     const output: Vector[] = [];
-    for (var i = 0; i < size; i++) {
+    for (let i = 0; i < size; i++) {
       output.push(Vector.randSigned(val));
     }
     return output;
