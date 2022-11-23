@@ -1,5 +1,5 @@
 {
-  "name": "canvassm",
+  "name": "@codemylife/canvassm",
   "version": "1.0.4",
   "description": "A simple library to work with html canvas",
   "main": "lib/index.js",
