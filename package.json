@@ -1,6 +1,6 @@
 {
   "name": "canvassm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple library to work with html canvas",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -14,7 +14,7 @@
     "preversion": "npm run lint",
     "version": "npm run format && git add -A  src",
     "postversion": "git-push && git push --tags",
-    "final":"npm version patch"
+    "final": "npm version patch"
   },
   "repository": {
     "type": "git",
