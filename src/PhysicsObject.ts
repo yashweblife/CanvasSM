@@ -5,19 +5,21 @@ export class PhysicsObject {
   public acc: Vector = new Vector();
   public mass: number = 1;
   public size: number = 1;
-  public addForce = (v: Vector) => {};
+  public addForce = (v: Vector) => {
+    this.acc.add(v);
+  };
   public dist = (b: PhysicsObject): number => {
     return this.pos.dist(b.pos);
   };
 
   public attract = (b: PhysicsObject, f: number = 0.9) => {
-    var nVec = Vector.VecFromSub(this.pos, b.pos);
+    const nVec = Vector.VecFromSub(this.pos, b.pos);
     nVec.normalize();
     nVec.scalar(f);
     this.addForce(nVec);
   };
   public repel = (b: PhysicsObject, f: number = 0.9) => {
-    var nVec = Vector.VecFromSub(b.pos, this.pos);
+    const nVec = Vector.VecFromSub(b.pos, this.pos);
     nVec.normalize();
     nVec.scalar(f);
     this.addForce(nVec);
@@ -28,9 +30,9 @@ export class PhysicsObject {
    * @param b Ball to get attracted to
    */
   public attractGravo = (b: PhysicsObject) => {
-    var nVec = Vector.VecFromSub(this.pos, b.pos);
-    var dist = this.pos.dist(b.pos);
-    var f = 0.0001;
+    const nVec = Vector.VecFromSub(this.pos, b.pos);
+    let dist = this.pos.dist(b.pos);
+    const f = 0.0001;
     if (dist < this.size) {
       dist = this.size;
     }
@@ -43,10 +45,10 @@ export class PhysicsObject {
    * Repels a physics object
    */
   public repelGravo = (b: PhysicsObject) => {
-    var nVec = Vector.VecFromAdd(this.pos, b.pos);
-    var dist = this.pos.dist(b.pos);
-    var f = 0.1;
-    if (dist == 0) {
+    const nVec = Vector.VecFromAdd(this.pos, b.pos);
+    let dist = this.pos.dist(b.pos);
+    const f = 0.1;
+    if (dist === 0) {
       dist = this.size;
     }
     nVec.normalize();

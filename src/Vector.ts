@@ -40,7 +40,7 @@ export class Vector {
    */
   private recalib = () => {
     this.mag = Math.sqrt(this.x ** 2 + this.y ** 2 + this.z ** 2);
-    if (this.mag == 0) {
+    if (this.mag === 0) {
       this.ux = 0;
       this.uy = 0;
       this.uz = 0;
@@ -85,7 +85,7 @@ export class Vector {
    * Sets vector to unit vector
    */
   public normalize = () => {
-    if (this.mag == 0) {
+    if (this.mag === 0) {
       this.x = 0;
       this.y = 0;
       this.z = 0;
@@ -177,8 +177,8 @@ export class Vector {
    * @param angle Number
    */
   public rotate = (angle: number) => {
-    var sin = Math.sin(angle),
-      cos = Math.cos(angle);
+    const sin = Math.sin(angle);
+    const cos = Math.cos(angle);
     this.x = this.x * cos - this.y * sin;
     this.y = this.x * sin + this.y * cos;
   };

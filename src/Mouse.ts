@@ -1,11 +1,11 @@
-import { PhysicsObject } from "./PhysicsObject";
-import { Vector } from "./Vector";
+import { PhysicsObject } from './PhysicsObject';
+import { Vector } from './Vector';
 
 export class Mouse extends PhysicsObject {
-  public click: Boolean = false;
+  public click: boolean = false;
   public offset: Vector;
-  public mass:number = 1;
-  public wheel:number = 0
+  public mass: number = 1;
+  public wheel: number = 0;
   constructor() {
     super();
     this.pos = new Vector();
@@ -25,18 +25,18 @@ export class Mouse extends PhysicsObject {
     this.click = false;
   };
   public move = (e: MouseEvent) => {
-    this.pos.x = e.clientX - this.offset.x
-    this.pos.y = e.clientY - this.offset.y
+    this.pos.x = e.clientX - this.offset.x;
+    this.pos.y = e.clientY - this.offset.y;
   };
-  public setOffset = (val:DOMRect)=>{
+  public setOffset = (val: DOMRect) => {
     this.offset.x = val.left;
     this.offset.y = val.top;
-  }
-  public handleWheel = (e:WheelEvent)=>{
-    if(e.deltaY>0){
-      this.wheel+=1
-    }else if(e.deltaY <0 ){
-      this.wheel-=1
+  };
+  public handleWheel = (e: WheelEvent) => {
+    if (e.deltaY > 0) {
+      this.wheel += 1;
+    } else if (e.deltaY < 0) {
+      this.wheel -= 1;
     }
-  }
+  };
 }
