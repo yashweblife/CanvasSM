@@ -6,7 +6,7 @@ export interface VectorInterface{
     z:number
 }
 
-export interface RadianInterface{
+export interface PolarInterface{
     r:number,
     theta:number
 }
