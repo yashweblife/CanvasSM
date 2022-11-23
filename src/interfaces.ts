@@ -32,3 +32,13 @@ export interface LineInterface {
   color: string;
   size: number;
 }
+
+export interface RectInterface {
+  pos: Vector;
+  size: Vector;
+  fill?: boolean;
+  stroke?: boolean;
+  strokeColor?: string;
+  fillColor?: string;
+  angle: number;
+}
