@@ -1,6 +1,20 @@
 import { CircleInterface, RectInterface } from './interfaces';
 import { Vector } from './Vector';
 
+/**
+ * ## Canvas
+ * Utility functions:
+ * - setSize: (w,h)=>void sets height
+ * - pixel: (pos:Vector, color:Vector)=>void draws pixel
+ * - circle: (CircleInterface)=>void makes circle
+ * - rect: (RectInterface)=>void makes rect
+ * - line: (LineInterface)=>void makes line
+ * - fillPath: (vec: Vector[], color: string)=>void makes filled path
+ * - clear: ()=>void clears screen
+ * - fadeClear: ()=>void fades screen to clear
+ * - drawImage: (img: HTMLVideoElement | HTMLCanvasElement | HTMLImageElement)=>void draws image on canvas
+ * - getImageData: ()=>ImageData returns canvas image data
+ */
 export class Canvas {
   public dom: HTMLCanvasElement;
   public ctx: CanvasRenderingContext2D;
@@ -19,6 +33,13 @@ export class Canvas {
     this.dom.height = h;
     this.width = w;
     this.height = h;
+  };
+  public pixel = (pos: Vector, color: Vector) => {
+    this.ctx.beginPath();
+    this.ctx.fillStyle = `rgb(${color.x}, ${color.y},${color.z})`;
+    this.ctx.rect(pos.x, pos.y, 1, 1);
+    this.ctx.closePath();
+    this.ctx.fill();
   };
   public circle = ({
     pos = new Vector(0, 0),
@@ -88,7 +109,7 @@ export class Canvas {
     this.ctx.rect(0, 0, this.width, this.height);
     this.ctx.fill();
   };
-  public drawImage = (img: HTMLVideoElement) => {
+  public drawImage = (img: HTMLVideoElement | HTMLCanvasElement | HTMLImageElement) => {
     this.ctx.drawImage(img, 0, 0, this.width, this.height);
   };
   public getImageData = (): ImageData => {
@@ -96,12 +117,5 @@ export class Canvas {
       willReadFrequently: true,
     } as ImageDataSettings);
     return img;
-  };
-  public pixel = (pos: Vector, color: Vector) => {
-    this.ctx.beginPath();
-    this.ctx.fillStyle = `rgb(${color.x}, ${color.y},${color.z})`;
-    this.ctx.rect(pos.x, pos.y, 1, 1);
-    this.ctx.closePath();
-    this.ctx.fill();
   };
 }
