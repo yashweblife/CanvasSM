@@ -14,12 +14,12 @@ export class Spherical {
 
   private recalib = () => {};
   public distance = (val: Spherical): number => {
-    let dist: number = Math.sqrt(
-      this.r ** 2 +
-        val.r ** 2 -
-        2 * this.r * val.r * (Math.sin(this.theta) * Math.sin(val.theta)) * Math.cos(this.psy - val.psy) +
-        Math.cos(this.theta) * Math.cos(val.theta),
-    );
+    const p1 = this.r ** 2 + val.r ** 2;
+    const p2 = 2 * this.r * val.r;
+    const p3 = Math.sin(this.theta) * Math.sin(val.theta);
+    const p4 = Math.cos(this.psy - val.psy);
+    const p5 = Math.cos(this.theta) * Math.cos(val.theta);
+    const dist: number = Math.sqrt(p1 - p2 * (p3 * p4 + p5));
     return dist;
   };
   public fromVector = (vec: Vector) => {
