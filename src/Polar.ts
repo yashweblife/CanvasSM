@@ -33,4 +33,25 @@ export class Polar {
   public randSigned = () => {
     return new Polar(Math.random() - 0.5, Math.random() - 0.5);
   };
+  public clone = (): Polar => {
+    return new Polar(this.r, this.theta);
+  };
+  public negative = () => {
+    this.r = -this.r;
+    this.theta = -this.theta;
+  };
+  public static generateRand = (size: number, max: number): Polar[] => {
+    const output: Polar[] = [];
+    for (var i = 0; i < max; i++) {
+      output.push(new Polar(Math.random() * max, Math.random()));
+    }
+    return output;
+  };
+  public static generateRandSigned = (size: number, max: number) => {
+    const output: Polar[] = [];
+    for (var i = 0; i < max; i++) {
+      output.push(new Polar((Math.random() - 0.5) * max, Math.random() - 0.5));
+    }
+    return output;
+  };
 }
