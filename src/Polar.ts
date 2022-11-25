@@ -7,6 +7,12 @@ export class Polar {
     this.r = r;
     this.theta = theta;
   }
+  public getRad = (deg: number): number => {
+    return deg * (Math.PI / 180);
+  };
+  public getDeg = (rad: number): number => {
+    return rad * (180 / Math.PI);
+  };
   public add = (val: Polar) => {
     this.r += val.r;
     this.theta += val.theta;
