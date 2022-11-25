@@ -15,7 +15,7 @@ export interface ColorInterface {
   r: number;
   g: number;
   b: number;
-  a: number;
+  a?: number;
 }
 
 export interface CircleInterface {
@@ -40,5 +40,5 @@ export interface RectInterface {
   stroke?: boolean;
   strokeColor?: string;
   fillColor?: string;
-  angle: number;
+  angle?: number;
 }
