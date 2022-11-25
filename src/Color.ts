@@ -30,9 +30,7 @@ export class Color {
     this.b *= val;
     this.recalib();
   };
-  public getColor = ()=>{
-    return(
-        `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`
-    )
-  }
+  public getColor = () => {
+    return `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`;
+  };
 }

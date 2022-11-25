@@ -104,6 +104,12 @@ export declare class Vector {
     rotate: (angle: number) => void;
     getNegative: () => Vector;
     /**
+     * Finds the average of all provided vectors
+     * @param vals : Vector[]
+     * @returns Vector
+     */
+    static getAverage: (vals: Vector[]) => Vector;
+    /**
      * Clones the Vector
      * @returns cloned Vector
      */

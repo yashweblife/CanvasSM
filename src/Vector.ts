@@ -187,17 +187,17 @@ export class Vector {
   };
   /**
    * Finds the average of all provided vectors
-   * @param vals : Vector[] 
+   * @param vals : Vector[]
    * @returns Vector
    */
-  public static getAverage = (vals:Vector[]):Vector=>{
-    const avg = new Vector()
-    vals.forEach((val:Vector)=>{
-      avg.add(val)
-    })
-    avg.scalar(vals.length)
-    return(avg)
-  }
+  public static getAverage = (vals: Vector[]): Vector => {
+    const avg = new Vector();
+    vals.forEach((val: Vector) => {
+      avg.add(val);
+    });
+    avg.scalar(vals.length);
+    return avg;
+  };
   /**
    * Clones the Vector
    * @returns cloned Vector

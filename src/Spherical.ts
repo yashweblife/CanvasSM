@@ -12,7 +12,9 @@ export class Spherical {
     this.recalib();
   }
 
-  private recalib = () => {};
+  private recalib = () => {
+    return;
+  };
   public distance = (val: Spherical): number => {
     const p1 = this.r ** 2 + val.r ** 2;
     const p2 = 2 * this.r * val.r;
@@ -26,7 +28,7 @@ export class Spherical {
     this.r = vec.mag;
     if (vec.z > 0) this.theta = Math.atan2(Math.sqrt(vec.x ** 2 + vec.y ** 2), vec.z);
     if (vec.z < 0) this.theta = Math.PI + Math.atan2(Math.sqrt(vec.x ** 2 + vec.y ** 2), vec.z);
-    if (vec.z == 0) this.theta = Math.PI / 2;
+    if (vec.z === 0) this.theta = Math.PI / 2;
     if (vec.x === 0 && vec.y === 0 && vec.z === 0) this.theta = 0;
 
     if (vec.x > 0) this.psy = Math.atan2(vec.y, vec.x);
