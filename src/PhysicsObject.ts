@@ -5,13 +5,14 @@ export class PhysicsObject {
   public acc: Vector = new Vector();
   public mass: number = 1;
   public size: number = 1;
+  public charge: number = 0;
+  public rigidBody: boolean = false;
   public addForce = (v: Vector) => {
     this.acc.add(v);
   };
   public dist = (b: PhysicsObject): number => {
     return this.pos.dist(b.pos);
   };
-
   public attract = (b: PhysicsObject, f: number = 0.9) => {
     const nVec = Vector.VecFromSub(this.pos, b.pos);
     nVec.normalize();
@@ -54,5 +55,12 @@ export class PhysicsObject {
     nVec.normalize();
     nVec.scalar((f * this.mass) / dist ** 2);
     this.addForce(nVec);
+  };
+  public chargeInteraction = (b: PhysicsObject) => {
+    if ((b.charge > 0 && this.charge > 0) || (b.charge < 0 && this.charge < 0)) {
+      this.repel(b, this.charge * b.charge);
+    } else {
+      this.attract(b, this.charge * b.charge);
+    }
   };
 }
