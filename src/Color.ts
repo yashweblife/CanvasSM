@@ -85,4 +85,20 @@ export class Color {
   public getColor = () => {
     return `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`;
   };
+  public toGreyScale = () => {
+    const avg = (this.r + this.g + this.b) / 3;
+    this.r = avg;
+    this.g = avg;
+    this.b = avg;
+  };
+  public getBrightness = (): number => {
+    const output: number = 0;
+    return output;
+  };
+  public static rand = (val: number) => {
+    return new Color(Math.floor(Math.random() * val), Math.floor(Math.random() * val), Math.floor(Math.random() * val));
+  };
+  public dist = (val: Color): number => {
+    return Math.sqrt((this.r - val.r) ** 2 + (this.g - val.g) ** 2 + (this.b - val.b) ** 2);
+  };
 }
