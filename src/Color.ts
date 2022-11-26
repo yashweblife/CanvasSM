@@ -73,7 +73,7 @@ export class Color {
   };
   public generateSimilar = (size: number): Color[] => {
     const output: Color[] = [];
-    for (var i = 0; i < size; i++) {
+    for (let i = 0; i < size; i++) {
       const mux = i / 10;
       const r = this.r / 255 + mux;
       const g = this.g / 255 + mux;

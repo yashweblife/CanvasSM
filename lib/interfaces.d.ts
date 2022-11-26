@@ -12,7 +12,7 @@ export interface ColorInterface {
     r: number;
     g: number;
     b: number;
-    a: number;
+    a?: number;
 }
 export interface CircleInterface {
     pos: Vector;
@@ -35,5 +35,5 @@ export interface RectInterface {
     stroke?: boolean;
     strokeColor?: string;
     fillColor?: string;
-    angle: number;
+    angle?: number;
 }

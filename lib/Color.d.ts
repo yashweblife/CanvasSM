@@ -1,3 +1,6 @@
+/**
+ * # Color
+ */
 export declare class Color {
     r: number;
     g: number;
@@ -7,5 +10,9 @@ export declare class Color {
     private recalib;
     add: (val: Color) => void;
     scalar: (val: number) => void;
+    maximize: () => void;
+    minimize: () => void;
+    complement: () => Color;
+    generateSimilar: (size: number) => Color[];
     getColor: () => string;
 }
