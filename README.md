@@ -1,4 +1,5 @@
 # CanvasSM
+* [Color](Color.md)
 
 This is a very basic library to help you use the html canvas element.
 
