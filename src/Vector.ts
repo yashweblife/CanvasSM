@@ -109,7 +109,10 @@ export class Vector {
    * @param a Vector
    */
   public cross = (a: Vector) => {
-    return this.x * a.x - this.y * a.y;
+    const x = this.y * a.z - this.z * a.y;
+    const y = this.z * a.x - this.x * a.z;
+    const z = this.x * a.y - this.y * a.x;
+    return new Vector(x, y, z);
   };
   /**
    * Returns distance between 2 vectors
@@ -195,7 +198,7 @@ export class Vector {
     vals.forEach((val: Vector) => {
       avg.add(val);
     });
-    avg.scalar(vals.length);
+    avg.scalar(1/vals.length);
     return avg;
   };
   /**
