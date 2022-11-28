@@ -15,6 +15,16 @@ export class Spherical {
   private recalib = () => {
     return;
   };
+  public add = (val: Spherical) => {
+    this.r += val.r;
+    this.theta += val.theta;
+    this.psy += val.psy;
+  };
+  public sub = (val: Spherical) => {
+    this.r -= val.r;
+    this.theta -= val.theta;
+    this.psy -= val.psy;
+  };
   public distance = (val: Spherical): number => {
     const p1 = this.r ** 2 + val.r ** 2;
     const p2 = 2 * this.r * val.r;
@@ -38,7 +48,28 @@ export class Spherical {
     if (vec.x === 0 && vec.y < 0) this.psy = -Math.PI / 2;
     if (vec.x === 0 && vec.y === 0) this.psy = 0;
   };
+  public static getFromVector = (vec: Vector): Spherical => {
+    const output = new Spherical();
+    output.r = vec.mag;
+    if (vec.z > 0) output.theta = Math.atan2(Math.sqrt(vec.x ** 2 + vec.y ** 2), vec.z);
+    if (vec.z < 0) output.theta = Math.PI + Math.atan2(Math.sqrt(vec.x ** 2 + vec.y ** 2), vec.z);
+    if (vec.z === 0) output.theta = Math.PI / 2;
+    if (vec.x === 0 && vec.y === 0 && vec.z === 0) output.theta = 0;
 
+    if (vec.x > 0) output.psy = Math.atan2(vec.y, vec.x);
+    if (vec.x < 0 && vec.y >= 0) output.psy = Math.atan2(vec.y, vec.x) + Math.PI;
+    if (vec.x < 0 && vec.y < 0) output.psy = Math.atan2(vec.y, vec.x) - Math.PI;
+    if (vec.x === 0 && vec.y > 0) output.psy = Math.PI / 2;
+    if (vec.x === 0 && vec.y < 0) output.psy = -Math.PI / 2;
+    if (vec.x === 0 && vec.y === 0) output.psy = 0;
+    return output;
+  };
+  public static getToSpherical = (val: Spherical): Vector => {
+    const x = val.r * (Math.sin(val.theta) * Math.cos(val.psy));
+    const y = val.r * (Math.sin(val.theta) * Math.sin(val.psy));
+    const z = val.r * Math.cos(val.theta);
+    return new Vector(x, y, z);
+  };
   public toVector = (): Vector => {
     const x = this.r * (Math.sin(this.theta) * Math.cos(this.psy));
     const y = this.r * (Math.sin(this.theta) * Math.sin(this.psy));
