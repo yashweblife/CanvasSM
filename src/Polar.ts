@@ -7,15 +7,19 @@ export class Polar {
     this.r = r;
     this.theta = theta;
   }
-  public getRad = (deg: number): number => {
+  public static getRad = (deg: number): number => {
     return deg * (Math.PI / 180);
   };
-  public getDeg = (rad: number): number => {
+  public static getDeg = (rad: number): number => {
     return rad * (180 / Math.PI);
   };
   public add = (val: Polar) => {
     this.r += val.r;
     this.theta += val.theta;
+  };
+  public sub = (val: Polar) => {
+    this.r -= val.r;
+    this.theta -= val.theta;
   };
   public scalar = (val: number) => {
     this.r *= val;
@@ -29,33 +33,33 @@ export class Polar {
     return new Polar(r, theta);
   };
   public normalize = () => {
-    const x = Math.cos(this.theta);
-    const y = Math.sin(this.theta);
+    const x = this.r * Math.cos(this.theta);
+    const y = this.r * Math.sin(this.theta);
     this.r = Math.atan2(y, x);
   };
-  public rand = () => {
+  public static rand = () => {
     return new Polar(Math.random(), Math.random());
   };
-  public randSigned = () => {
+  public static randSigned = () => {
     return new Polar(Math.random() - 0.5, Math.random() - 0.5);
   };
   public clone = (): Polar => {
     return new Polar(this.r, this.theta);
   };
   public negative = () => {
-    this.r = -this.r;
-    this.theta = -this.theta;
+    this.r = this.r;
+    this.theta = Math.PI-this.theta;
   };
   public static generateRand = (size: number, max: number): Polar[] => {
     const output: Polar[] = [];
-    for (let i = 0; i < max; i++) {
+    for (let i = 0; i < size; i++) {
       output.push(new Polar(Math.random() * max, Math.random()));
     }
     return output;
   };
   public static generateRandSigned = (size: number, max: number) => {
     const output: Polar[] = [];
-    for (let i = 0; i < max; i++) {
+    for (let i = 0; i < size; i++) {
       output.push(new Polar((Math.random() - 0.5) * max, Math.random() - 0.5));
     }
     return output;
