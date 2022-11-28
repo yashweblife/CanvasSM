@@ -48,7 +48,7 @@ export class Polar {
   };
   public negative = () => {
     this.r = this.r;
-    this.theta = Math.PI-this.theta;
+    this.theta = Math.PI - this.theta;
   };
   public static generateRand = (size: number, max: number): Polar[] => {
     const output: Polar[] = [];

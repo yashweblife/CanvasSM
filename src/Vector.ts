@@ -198,7 +198,7 @@ export class Vector {
     vals.forEach((val: Vector) => {
       avg.add(val);
     });
-    avg.scalar(1/vals.length);
+    avg.scalar(1 / vals.length);
     return avg;
   };
   /**

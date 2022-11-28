@@ -100,7 +100,7 @@ describe('Polar Coordinates', () => {
   it('Should convert deg to rad', () => {
     const a = 90;
     const b = Polar.getRad(a);
-    expect(b).toBeCloseTo(1.5,0.01);
+    expect(b).toBeCloseTo(1.5, 0.01);
   });
   it('Should convert rad to deg', () => {
     const a = new Polar(1, 0);
@@ -141,7 +141,7 @@ describe('Polar Coordinates', () => {
   });
   it('Should create random point', () => {
     const a = Polar.rand();
-    expect(a.r).toBeCloseTo(1,0.001);
+    expect(a.r).toBeCloseTo(1, 0.001);
   });
   it('Should create random signed point', () => {
     const a = Polar.randSigned();
