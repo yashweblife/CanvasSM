@@ -15,4 +15,8 @@ export declare class Color {
     complement: () => Color;
     generateSimilar: (size: number) => Color[];
     getColor: () => string;
+    toGreyScale: () => void;
+    getBrightness: () => number;
+    static rand: (val: number) => Color;
+    dist: (val: Color) => number;
 }

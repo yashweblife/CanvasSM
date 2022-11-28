@@ -62,7 +62,7 @@ export declare class Vector {
      * Vector cross product
      * @param a Vector
      */
-    cross: (a: Vector) => number;
+    cross: (a: Vector) => Vector;
     /**
      * Returns distance between 2 vectors
      */

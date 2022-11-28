@@ -3,6 +3,7 @@ export interface VectorInterface {
     x: number;
     y: number;
     z: number;
+    [more: number]: number;
 }
 export interface PolarInterface {
     r: number;
@@ -27,6 +28,18 @@ export interface LineInterface {
     end: Vector;
     color: string;
     size: number;
+}
+export interface PathInterface {
+    points: Vector[];
+    fill?: boolean | false;
+    fillColor?: string;
+    stroke?: boolean | true;
+    strokeColor?: string;
+}
+export interface SphericalInterface {
+    r: number;
+    theta: number;
+    psy: number;
 }
 export interface RectInterface {
     pos: Vector;

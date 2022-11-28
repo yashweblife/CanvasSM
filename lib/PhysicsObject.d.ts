@@ -5,6 +5,8 @@ export declare class PhysicsObject {
     acc: Vector;
     mass: number;
     size: number;
+    charge: number;
+    rigidBody: boolean;
     addForce: (v: Vector) => void;
     dist: (b: PhysicsObject) => number;
     attract: (b: PhysicsObject, f?: number) => void;
@@ -20,4 +22,5 @@ export declare class PhysicsObject {
      * Repels a physics object
      */
     repelGravo: (b: PhysicsObject) => void;
+    chargeInteraction: (b: PhysicsObject) => void;
 }
