@@ -4,7 +4,7 @@ export interface VectorInterface {
   x: number;
   y: number;
   z: number;
-  [more:number]:number;
+  [more: number]: number;
 }
 
 export interface PolarInterface {
@@ -33,17 +33,17 @@ export interface LineInterface {
   color: string;
   size: number;
 }
-export interface PathInterface{
-  points:Vector[],
-  fill?:boolean | false,
-  fillColor?:string,
-  stroke?:boolean | true,
-  strokeColor?:string
+export interface PathInterface {
+  points: Vector[];
+  fill?: boolean | false;
+  fillColor?: string;
+  stroke?: boolean | true;
+  strokeColor?: string;
 }
-export interface SphericalInterface{
-  r:number,
-  theta:number,
-  psy:number
+export interface SphericalInterface {
+  r: number;
+  theta: number;
+  psy: number;
 }
 export interface RectInterface {
   pos: Vector;
