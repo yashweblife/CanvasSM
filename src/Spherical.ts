@@ -34,6 +34,18 @@ export class Spherical {
     const dist: number = Math.sqrt(p1 - p2 * (p3 * p4 + p5));
     return dist;
   };
+  public scalar = (val: number) => {
+    this.r *= val;
+  };
+  public normalize = () => {
+    this.r = 1;
+  };
+  public rotateX = (val: number) => {
+    this.theta += val;
+  };
+  public rotateY = (val: number) => {
+    this.psy += val;
+  };
   public fromVector = (vec: Vector) => {
     this.r = vec.mag;
     if (vec.z > 0) this.theta = Math.atan2(Math.sqrt(vec.x ** 2 + vec.y ** 2), vec.z);
