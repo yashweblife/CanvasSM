@@ -4,7 +4,7 @@ export class PhysicsObject {
   public vel: Vector = new Vector();
   public acc: Vector = new Vector();
   public mass: number = 1;
-  public size: number = 1;
+  public size: number | Vector = 1;
   public charge: number = 0;
   public rigidBody: boolean = false;
   public addForce = (v: Vector) => {
@@ -34,8 +34,14 @@ export class PhysicsObject {
     const nVec = Vector.VecFromSub(this.pos, b.pos);
     let dist = this.pos.dist(b.pos);
     const f = 0.0001;
-    if (dist < this.size) {
-      dist = this.size;
+    if (this.size instanceof Vector) {
+      if (dist < this.size.mag) {
+        dist = this.size.mag;
+      }
+    } else {
+      if (dist < this.size) {
+        dist = this.size;
+      }
     }
     nVec.normalize();
     nVec.scalar((f * this.mass * b.mass) / dist);
@@ -49,8 +55,14 @@ export class PhysicsObject {
     const nVec = Vector.VecFromAdd(this.pos, b.pos);
     let dist = this.pos.dist(b.pos);
     const f = 0.1;
-    if (dist === 0) {
-      dist = this.size;
+    if (this.size instanceof Vector) {
+      if (dist === 0) {
+        dist = this.size.mag;
+      }
+    } else {
+      if (dist === 0) {
+        dist = this.size;
+      }
     }
     nVec.normalize();
     nVec.scalar((f * this.mass) / dist ** 2);
