@@ -1,4 +1,4 @@
-import { Polar, Spherical, Vector } from '../src';
+import { Ball, Polar, Spherical, Vector, Wall } from '../src';
 
 describe('Vector Coordinates', () => {
   it('Should add 2 points', () => {
@@ -141,7 +141,7 @@ describe('Polar Coordinates', () => {
   });
   it('Should create random point', () => {
     const a = Polar.rand();
-    expect(a.r).toBeCloseTo(1, 0.001);
+    expect(a.r).toBeLessThanOrEqual(1);
   });
   it('Should create random signed point', () => {
     const a = Polar.randSigned();
@@ -202,5 +202,29 @@ describe('Spherical Coordinates', () => {
     const a = new Spherical(1, 0, 0);
     const b = a.toVector();
     expect(b.mag).toBe(1);
+  });
+});
+
+describe('Ball', () => {
+  it('Updates the position', () => {
+    const ball = new Ball(new Vector());
+    ball.addForce(new Vector(1, 1));
+    ball.update();
+    expect(ball.pos.x).toBe(1);
+  });
+  it('Checks intersection between 2 balls', () => {
+    const b1 = new Ball();
+    b1.size = 10;
+    const b2 = new Ball(new Vector(1, 1));
+    b2.size = 10;
+    expect(b1.checkCollision(b2)).toBe(true);
+  });
+});
+
+describe('Wall', () => {
+  it('Checks intersection between wall and ball', () => {
+    const w1 = new Wall(new Vector(), new Vector(100, 100));
+    const w2 = new Ball(new Vector(200, 0));
+    expect(w1.checkIntersection(w2)).toBe(false);
   });
 });
