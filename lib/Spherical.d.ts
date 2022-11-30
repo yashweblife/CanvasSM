@@ -8,6 +8,10 @@ export declare class Spherical {
     add: (val: Spherical) => void;
     sub: (val: Spherical) => void;
     distance: (val: Spherical) => number;
+    scalar: (val: number) => void;
+    normalize: () => void;
+    rotateX: (val: number) => void;
+    rotateY: (val: number) => void;
     fromVector: (vec: Vector) => void;
     static getFromVector: (vec: Vector) => Spherical;
     static getToSpherical: (val: Spherical) => Vector;
