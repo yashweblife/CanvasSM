@@ -13,7 +13,7 @@ export class Wall extends PhysicsObject {
   public setColor = (val: Color) => {
     this.color = val;
   };
-  public checkIntersection = (val: PhysicsObject):boolean => {
+  public checkIntersection = (val: PhysicsObject): boolean => {
     if (val.size instanceof Vector) {
       const a = this.pos;
       const a1 = this.size as Vector;
