@@ -34,7 +34,7 @@ export class Ball extends PhysicsObject {
   };
   public static generate = (quantity: number, size: Vector):Ball[] => {
     const output: Ball[] = [];
-    for (var i = 0; i < quantity; i++) {
+    for (let i = 0; i < quantity; i++) {
       output.push(new Ball(new Vector(Math.random() * size.x, Math.random() * size.y)));
     }
     return(output)
