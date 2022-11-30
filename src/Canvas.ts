@@ -201,8 +201,12 @@ export class Canvas {
    * ```
    * @param img
    */
-  public drawImage = (img: HTMLVideoElement | HTMLCanvasElement | HTMLImageElement) => {
-    this.ctx.drawImage(img, 0, 0, this.width, this.height);
+  public drawImage = (
+    img: HTMLVideoElement | HTMLCanvasElement | HTMLImageElement,
+    pos: Vector = new Vector(),
+    size: Vector = new Vector(this.width, this.height),
+  ) => {
+    this.ctx.drawImage(img, pos.x, pos.y, size.x, size.y);
   };
   /**
    * getImageData
