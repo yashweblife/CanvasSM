@@ -1,12 +1,14 @@
 import { Canvas } from './Canvas';
 import { Color } from './Color';
 import { PhysicsObject } from './PhysicsObject';
+import { Vector } from './Vector';
 
 export class Ball extends PhysicsObject {
   public color: Color = new Color();
   public size: number = 10;
-  constructor() {
+  constructor(pos: Vector = new Vector()) {
     super();
+    this.pos = pos;
   }
   public setColor = (val: Color = new Color(255, 0, 0)) => {
     this.color = val;
@@ -30,5 +32,10 @@ export class Ball extends PhysicsObject {
     this.vel.add(this.acc);
     this.pos.add(this.vel);
   };
-  public static generate = (size:number)=>{}
+  public static generate = (quantity: number, size: Vector) => {
+    const output: Ball[] = [];
+    for (var i = 0; i < quantity; i++) {
+      output.push(new Ball(new Vector(Math.random() * size.x, Math.random() * size.y)));
+    }
+  };
 }
