@@ -4,6 +4,7 @@
   "description": "A simple library to work with html canvas",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "private": false,
   "scripts": {
     "test": "jest",
     "build": "tsc",
