@@ -121,7 +121,7 @@ export declare class Canvas {
      * ```
      * @param img
      */
-    drawImage: (img: HTMLVideoElement | HTMLCanvasElement | HTMLImageElement) => void;
+    drawImage: (img: HTMLVideoElement | HTMLCanvasElement | HTMLImageElement, pos?: Vector, size?: Vector) => void;
     /**
      * getImageData
      * Returns the current image state of the canvas

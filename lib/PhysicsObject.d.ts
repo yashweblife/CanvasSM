@@ -4,7 +4,7 @@ export declare class PhysicsObject {
     vel: Vector;
     acc: Vector;
     mass: number;
-    size: number;
+    size: number | Vector;
     charge: number;
     rigidBody: boolean;
     addForce: (v: Vector) => void;
