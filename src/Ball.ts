@@ -32,10 +32,11 @@ export class Ball extends PhysicsObject {
     this.vel.add(this.acc);
     this.pos.add(this.vel);
   };
-  public static generate = (quantity: number, size: Vector) => {
+  public static generate = (quantity: number, size: Vector):Ball[] => {
     const output: Ball[] = [];
     for (var i = 0; i < quantity; i++) {
       output.push(new Ball(new Vector(Math.random() * size.x, Math.random() * size.y)));
     }
+    return(output)
   };
 }
