@@ -94,6 +94,16 @@ describe('Vector Coordinates', () => {
     const b = Vector.getNormalized(a);
     expect(b.x).toBeLessThanOrEqual(1);
   });
+  it('Should find distance between vector and polar', () => {
+    const a = new Vector();
+    const b = new Polar(2, 0);
+    expect(a.distFromPolar(b)).toBe(2);
+  });
+  it('Should find distance between vector and Spherical', () => {
+    const a = new Vector();
+    const b = new Spherical(2, 0, 0);
+    expect(a.distFromSpherical(b)).toBe(2);
+  });
 });
 
 describe('Polar Coordinates', () => {
