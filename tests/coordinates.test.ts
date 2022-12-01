@@ -206,6 +206,17 @@ describe('Spherical Coordinates', () => {
     const b = new Spherical(2, 0, 0);
     expect(a.dist(b)).toBe(1);
   });
+  it('Should find distance between spherical and vector', () => {
+    const a = new Spherical();
+    const b = new Vector(2, 0, 0);
+    expect(a.distFromVector(b));
+  });
+
+  it('Should find distance between spherical and Polar', () => {
+    const a = new Spherical();
+    const b = new Polar(2, 0);
+    expect(a.distFromPolar(b));
+  });
   it('Should Create point from vector', () => {
     const a = new Spherical(0, 0, 0);
     const b = new Vector(1, 1, 1);
