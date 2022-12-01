@@ -185,7 +185,7 @@ describe('Spherical Coordinates', () => {
   it('Checks distance between 2 points', () => {
     const a = new Spherical(1, 0, 0);
     const b = new Spherical(2, 0, 0);
-    expect(a.distance(b)).toBe(1);
+    expect(a.dist(b)).toBe(1);
   });
   it('Should Create point from vector', () => {
     const a = new Spherical(0, 0, 0);
