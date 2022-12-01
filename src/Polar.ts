@@ -1,3 +1,4 @@
+import { Spherical } from './Spherical';
 import { Vector } from './Vector';
 
 export class Polar {
@@ -20,6 +21,19 @@ export class Polar {
   public sub = (val: Polar) => {
     this.r -= val.r;
     this.theta -= val.theta;
+  };
+  public dist = (val: Polar) => {
+    const d: number = Math.sqrt(this.r ** 2 + val.r ** 2 - 2 * this.r * val.r * Math.cos(this.theta - val.theta));
+    return d;
+  };
+  public distFromVector = (val: Vector): number => {
+    const ptov = this.toVector();
+    return val.dist(ptov);
+  };
+  public distFromSpherical = (val: Spherical): number => {
+    const stov = val.toVector();
+    const ptov = this.toVector();
+    return stov.dist(ptov);
   };
   public scalar = (val: number) => {
     this.r *= val;
