@@ -1,3 +1,4 @@
+import { Spherical } from './Spherical';
 import { Vector } from './Vector';
 export declare class Polar {
     r: number;
@@ -7,6 +8,9 @@ export declare class Polar {
     static getDeg: (rad: number) => number;
     add: (val: Polar) => void;
     sub: (val: Polar) => void;
+    dist: (val: Polar) => number;
+    distFromVector: (val: Vector) => number;
+    distFromSpherical: (val: Spherical) => number;
     scalar: (val: number) => void;
     toVector: () => Vector;
     static fromVector: (val: Vector) => Polar;

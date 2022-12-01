@@ -1,3 +1,4 @@
+import { Polar } from './Polar';
 import { Vector } from './Vector';
 export declare class Spherical {
     r: number;
@@ -7,7 +8,9 @@ export declare class Spherical {
     private recalib;
     add: (val: Spherical) => void;
     sub: (val: Spherical) => void;
-    distance: (val: Spherical) => number;
+    dist: (val: Spherical) => number;
+    distFromPolar: (val: Polar) => number;
+    distFromVector: (val: Vector) => number;
     scalar: (val: number) => void;
     normalize: () => void;
     rotateX: (val: number) => void;

@@ -14,6 +14,8 @@
  * rotate | Rotates a vector
  * clone | Clones the vector
  */
+import { Polar } from './Polar';
+import { Spherical } from './Spherical';
 export declare class Vector {
     x: number;
     y: number;
@@ -67,6 +69,8 @@ export declare class Vector {
      * Returns distance between 2 vectors
      */
     dist: (a: Vector) => number;
+    distFromPolar: (a: Polar) => number;
+    distFromSpherical: (a: Spherical) => number;
     /**
      * Sets the magnitude of the vector without changing the direction
      */
