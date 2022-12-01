@@ -15,6 +15,9 @@
  * clone | Clones the vector
  */
 
+import { Polar } from './Polar';
+import { Spherical } from './Spherical';
+
 export class Vector {
   public x: number = 0;
   public y: number = 0;
@@ -119,6 +122,14 @@ export class Vector {
    */
   public dist = (a: Vector): number => {
     return Math.sqrt((this.x - a.x) ** 2 + (this.y - a.y) ** 2 + (this.z - a.z) ** 2);
+  };
+  public distFromPolar = (a: Polar): number => {
+    const ptov = a.toVector();
+    return this.dist(ptov);
+  };
+  public distFromSpherical = (a: Spherical): number => {
+    const stov = a.toVector();
+    return this.dist(stov);
   };
   /**
    * Sets the magnitude of the vector without changing the direction
