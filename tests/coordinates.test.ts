@@ -144,6 +144,16 @@ describe('Polar Coordinates', () => {
     const b = Polar.fromVector(a);
     expect(b.r).toBe(1);
   });
+  it('Should find distance between polar and vector', () => {
+    const a = new Polar();
+    const b = new Vector(2, 0, 0);
+    expect(a.distFromVector(b)).toBe(2);
+  });
+  it('Should find distance between polar and Spherical', () => {
+    const a = new Polar();
+    const b = new Spherical(2, 0, 0);
+    expect(a.distFromSpherical(b)).toBe(2);
+  });
   it('Should normalize', () => {
     const a = new Polar(1, 0);
     a.normalize();
@@ -155,7 +165,6 @@ describe('Polar Coordinates', () => {
   });
   it('Should create random signed point', () => {
     const a = Polar.randSigned();
-
     expect(a.r).toBeLessThanOrEqual(1);
     expect(a.r).toBeGreaterThanOrEqual(-1);
   });
