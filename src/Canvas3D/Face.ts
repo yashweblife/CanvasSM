@@ -1,6 +1,6 @@
-import { Canvas } from "../Canvas";
-import { Vector } from "../Vector";
-import { RenderOptions } from "./RenderOptions";
+import { Canvas } from '../Canvas';
+import { Vector } from '../Vector';
+import { RenderOptions } from './RenderOptions';
 
 export class Face {
   public vertices: Vector[] = [];
