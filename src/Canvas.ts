@@ -44,6 +44,26 @@ export class Canvas {
     this.width = w;
     this.height = h;
   };
+  public begin = () => {
+    this.ctx.beginPath();
+  };
+  public close = () => {
+    this.ctx.closePath();
+  };
+  public fill = (color: string = 'black') => {
+    this.ctx.fillStyle = color;
+    this.ctx.fill();
+  };
+  public stroke = (color: string = 'black') => {
+    this.ctx.strokeStyle = color;
+    this.ctx.stroke();
+  };
+  public moveToVec = (vec: Vector = new Vector(0, 0, 0)) => {
+    this.ctx.moveTo(vec.x, vec.y);
+  };
+  public lineToVec = (vec: Vector = new Vector()) => {
+    this.ctx.lineTo(vec.x, vec.y);
+  };
   /**
    * ## pixel
    * Draws a pixel on a given vector and with a given color
