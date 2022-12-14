@@ -11,5 +11,5 @@ export declare class Body {
     draw: (c: Canvas) => void;
     rotate: (vector: Vector) => void;
     update: () => void;
-    static makeBox: (center?: Vector, size?: Vector) => void;
+    static makeBox: (center?: Vector, size?: Vector) => Body;
 }

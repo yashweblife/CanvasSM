@@ -13,5 +13,5 @@ export declare class Canvas3D {
     addEnvironmentForce: (force: Vector) => void;
     draw: () => void;
     update: () => void;
-    private animate;
+    animate: () => void;
 }
