@@ -15,6 +15,11 @@ export class Face {
   constructor(vertices: Vector[]) {
     this.vertices = vertices;
   }
+  public rotate = (vector: Vector) => {
+    this.vertices.forEach((val: Vector) => {
+      val.rotate(vector);
+    });
+  };
   public draw = (c: Canvas) => {
     c.begin();
     c.moveToVec(RenderOptions.project(this.vertices[0]));
@@ -41,7 +46,11 @@ export class Body {
       face.draw(c);
     });
   };
-  public rotate = (vector: Vector) => {};
+  public rotate = (vector: Vector) => {
+    this.faces.forEach((face: Face) => {
+      face.rotate(vector);
+    });
+  };
   public update = () => {
     this.angularVelocity.add(this.angularAcceleration);
     this.angularPosition.add(this.angularVelocity);
@@ -103,7 +112,7 @@ export class Body {
         v[1], //bottom
       ],
     ];
-    const finalFaces:Face[] = [];
+    const finalFaces: Face[] = [];
     faces.forEach((f: Vector[]) => {
       f.forEach((vec: Vector) => {
         vec.x *= size.x;
@@ -111,7 +120,7 @@ export class Body {
         vec.z *= size.z;
       });
       finalFaces.push(new Face(f));
-      return(new Body(finalFaces, center))
+      return new Body(finalFaces, center);
     });
   };
 }
@@ -153,5 +162,9 @@ export class Canvas3D {
       body.update();
     });
   };
-  private animate = () => {};
+  private animate = () => {
+    this.canvas.clear();
+    this.update();
+    this.draw();
+  };
 }
