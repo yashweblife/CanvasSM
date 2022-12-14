@@ -69,7 +69,17 @@ export declare class Vector {
      * Returns distance between 2 vectors
      */
     dist: (a: Vector) => number;
+    /**
+     * Returns distance between `Vector` and `Polar`
+     * @param a Ploar
+     * @returns number
+     */
     distFromPolar: (a: Polar) => number;
+    /**
+     * Returns distance between `Vector` and `Spherical`
+     * @param a Spherical
+     * @returns number
+     */
     distFromSpherical: (a: Spherical) => number;
     /**
      * Sets the magnitude of the vector without changing the direction
@@ -103,9 +113,28 @@ export declare class Vector {
     static getNormalized: (v: Vector) => Vector;
     /**
      * Rotates Vector, preserves magnitude
-     * @param angle Number
+     * @param angle Vector
      */
-    rotate: (angle: number) => void;
+    rotate: (angle: Vector) => void;
+    /**
+     * Rotates @Vector along `x axis`
+     * @param angle number
+     */
+    rotateX: (angle: number) => void;
+    /**
+     * Rotates  @Vector along `y axiz`
+     * @param angle number
+     */
+    rotateY: (angle: number) => void;
+    /**
+     * Rotates @Vector along `z axis`
+     * @param angle number
+     */
+    rotateZ: (angle: number) => void;
+    /**
+     * Returns a negated version of the vector
+     * @returns Vector
+     */
     getNegative: () => Vector;
     /**
      * Finds the average of all provided vectors

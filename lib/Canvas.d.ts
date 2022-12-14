@@ -31,6 +31,12 @@ export declare class Canvas {
      * @param h height
      */
     setSize: (w: number, h: number) => void;
+    begin: () => void;
+    close: () => void;
+    fill: (color?: string) => void;
+    stroke: (color?: string) => void;
+    moveToVec: (vec?: Vector) => void;
+    lineToVec: (vec?: Vector) => void;
     /**
      * ## pixel
      * Draws a pixel on a given vector and with a given color
