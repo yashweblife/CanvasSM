@@ -29,7 +29,7 @@ export class Body {
     this.rotate(this.angularPosition);
     this.angularAcceleration.scalar(0);
   };
-  public static makeBox = (center: Vector = new Vector(), size: Vector = new Vector(1, 1, 1)) => {
+  public static makeBox = (center: Vector = new Vector(), size: Vector = new Vector(1, 1, 1)): Body => {
     const v = [
       new Vector(1, 1, 1),
       new Vector(1, -1, 1),
@@ -92,7 +92,7 @@ export class Body {
         vec.z *= size.z;
       });
       finalFaces.push(new Face(f));
-      return new Body(finalFaces, center);
     });
+    return new Body(finalFaces, center);
   };
 }

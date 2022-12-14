@@ -36,7 +36,7 @@ export class Canvas3D {
       body.update();
     });
   };
-  private animate = () => {
+  public animate = () => {
     this.canvas.clear();
     this.update();
     this.draw();
