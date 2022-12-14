@@ -1,14 +1,12 @@
 import { Canvas } from '../Canvas';
 import { Vector } from '../Vector';
 import { Body } from './Body';
-class Camera {
-  public position: Vector = new Vector();
-  public scale: number = 200;
-}
+import { ViewPoint } from './ViewPoint';
+
 export class Canvas3D {
   private canvas: Canvas = new Canvas();
   private size: Vector = new Vector(100, 100);
-  private camera: Camera = new Camera();
+  private camera: ViewPoint = new ViewPoint();
   private bodies: Body[] = [];
   private forces: Vector[] = [];
   private environmentForces: Vector = new Vector();
