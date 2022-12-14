@@ -1,6 +1,6 @@
 import { Ball } from './Ball';
 import { Canvas } from './Canvas';
-import { Canvas3D } from './Canvas3D';
+import { Body, Canvas3D, Face } from './Canvas3D';
 import { Color } from './Color';
 import {
   CircleInterface,
@@ -16,6 +16,6 @@ import { Polar } from './Polar';
 import { Spherical } from './Spherical';
 import { Vector } from './Vector';
 import { Wall } from './Wall';
-export { Vector, Polar, Spherical, Canvas, Canvas3D, Wall, Mouse, PhysicsObject, Color, Ball };
+export { Vector, Polar, Spherical, Canvas, Canvas3D, Body, Face, Wall, Mouse, PhysicsObject, Color, Ball };
 export { CircleInterface, PolarInterface, ColorInterface, LineInterface, VectorInterface, RectInterface };
 
