@@ -123,10 +123,20 @@ export class Vector {
   public dist = (a: Vector): number => {
     return Math.sqrt((this.x - a.x) ** 2 + (this.y - a.y) ** 2 + (this.z - a.z) ** 2);
   };
+  /**
+   * Returns distance between `Vector` and `Polar`
+   * @param a Ploar
+   * @returns number
+   */
   public distFromPolar = (a: Polar): number => {
     const ptov = a.toVector();
     return this.dist(ptov);
   };
+  /**
+   * Returns distance between `Vector` and `Spherical`
+   * @param a Spherical
+   * @returns number
+   */
   public distFromSpherical = (a: Spherical): number => {
     const stov = a.toVector();
     return this.dist(stov);
@@ -188,14 +198,44 @@ export class Vector {
   };
   /**
    * Rotates Vector, preserves magnitude
-   * @param angle Number
+   * @param angle Vector
    */
-  public rotate = (angle: number) => {
-    const sin = Math.sin(angle);
-    const cos = Math.cos(angle);
-    this.x = this.x * cos - this.y * sin;
-    this.y = this.x * sin + this.y * cos;
+  public rotate = (angle: Vector) => {
+    this.rotateX(angle.x);
+    this.rotateY(angle.y);
+    this.rotateZ(angle.z);
   };
+  /**
+   * Rotates @Vector along `x axis`
+   * @param angle number
+   */
+  public rotateX = (angle: number) => {
+    const dx = this.x;
+    const dy = this.y * Math.cos(angle) - this.z * Math.sin(angle);
+    const dz = this.y * Math.sin(angle) + this.z * Math.cos(angle);
+  };
+  /**
+   * Rotates  @Vector along `y axiz`
+   * @param angle number
+   */
+  public rotateY = (angle: number) => {
+    const dx = this.x * Math.cos(angle) + this.z * Math.sin(angle);
+    const dy = this.y;
+    const dz = -this.x * Math.sin(angle) + this.z * Math.cos(angle);
+  };
+  /**
+   * Rotates @Vector along `z axis`
+   * @param angle number
+   */
+  public rotateZ = (angle: number) => {
+    const dx = this.x * Math.cos(angle) - this.y * Math.sin(angle);
+    const dy = this.x * Math.sin(angle) + this.y * Math.cos(angle);
+    const dz = this.z;
+  };
+  /**
+   * Returns a negated version of the vector
+   * @returns Vector
+   */
   public getNegative = () => {
     return new Vector(-this.x, -this.y, -this.z);
   };
