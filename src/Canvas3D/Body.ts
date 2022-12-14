@@ -46,42 +46,42 @@ export class Body {
         v[1],
         v[2],
         v[3],
-        v[0], //front
+        v[0], // front
       ],
       [
         v[0],
         v[1],
         v[4],
         v[5],
-        v[0], //right
+        v[0], // right
       ],
       [
         v[5],
         v[4],
         v[6],
         v[7],
-        v[5], //back
+        v[5], // back
       ],
       [
         v[7],
         v[6],
         v[2],
         v[3],
-        v[7], //left
+        v[7], // left
       ],
       [
         v[0],
         v[5],
         v[7],
         v[3],
-        v[0], //top
+        v[0], // top
       ],
       [
         v[1],
         v[4],
         v[6],
         v[2],
-        v[1], //bottom
+        v[1], // bottom
       ],
     ];
     const finalFaces: Face[] = [];
