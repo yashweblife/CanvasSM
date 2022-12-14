@@ -48,7 +48,74 @@ export class Body {
     this.rotate(this.angularPosition);
     this.angularAcceleration.scalar(0);
   };
+  public static makeBox = (center: Vector = new Vector(), size: Vector = new Vector(1, 1, 1)) => {
+    const v = [
+      new Vector(1, 1, 1),
+      new Vector(1, -1, 1),
+      new Vector(-1, -1, 1),
+      new Vector(-1, 1, 1),
+      new Vector(1, -1, -1),
+      new Vector(1, 1, -1),
+      new Vector(-1, -1, -1),
+      new Vector(-1, 1, -1),
+    ];
+    const faces = [
+      [
+        v[0],
+        v[1],
+        v[2],
+        v[3],
+        v[0], //front
+      ],
+      [
+        v[0],
+        v[1],
+        v[4],
+        v[5],
+        v[0], //right
+      ],
+      [
+        v[5],
+        v[4],
+        v[6],
+        v[7],
+        v[5], //back
+      ],
+      [
+        v[7],
+        v[6],
+        v[2],
+        v[3],
+        v[7], //left
+      ],
+      [
+        v[0],
+        v[5],
+        v[7],
+        v[3],
+        v[0], //top
+      ],
+      [
+        v[1],
+        v[4],
+        v[6],
+        v[2],
+        v[1], //bottom
+      ],
+    ];
+    const finalFaces:Face[] = [];
+    faces.forEach((f: Vector[]) => {
+      f.forEach((vec: Vector) => {
+        vec.x *= size.x;
+        vec.y *= size.y;
+        vec.z *= size.z;
+      });
+      finalFaces.push(new Face(f));
+      return(new Body(finalFaces, center))
+    });
+  };
 }
+
 export class Camera {
   public position: Vector = new Vector();
   public scale: number = 200;
@@ -58,11 +125,23 @@ export class Canvas3D {
   private size: Vector = new Vector(100, 100);
   private camera: Camera = new Camera();
   private bodies: Body[] = [];
+  private forces: Vector[] = [];
+  private environmentForces: Vector = new Vector();
   constructor(parent: HTMLElement = document.body) {
     parent.append(this.canvas.dom);
   }
   public addBody = (bod: Body) => {
     this.bodies.push(bod);
+  };
+  private calculateEnvironmentForce = () => {
+    this.environmentForces.scalar(0);
+    this.forces.forEach((force: Vector) => {
+      this.environmentForces.add(force);
+    });
+  };
+  public addEnvironmentForce = (force: Vector) => {
+    this.forces.push(force);
+    this.calculateEnvironmentForce();
   };
   public draw = () => {
     this.bodies.forEach((body: Body) => {
