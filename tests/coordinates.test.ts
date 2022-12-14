@@ -48,7 +48,7 @@ describe('Vector Coordinates', () => {
   });
   it('Should rotate point', () => {
     const a = new Vector(1, 0, 0);
-    a.rotate(Math.PI / 2);
+    a.rotate(new Vector(Math.PI / 2,0,0));
   });
   it('Should return a negative of the vector', () => {
     const a = new Vector(1, 0, 0);
