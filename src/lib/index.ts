@@ -1,3 +1,5 @@
+import Ball from "./Ball";
 import Canvas from "./Canvas";
 import Vector from "./Vector";
-export { Canvas, Vector };
+export { Ball, Canvas, Vector };
+
