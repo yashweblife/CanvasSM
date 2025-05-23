@@ -1,3 +1,4 @@
-import { Canvas, Vector } from './lib'
+import { Ball, Canvas, Vector } from './lib'
 
-export { Canvas, Vector }
+export { Ball, Canvas, Vector }
+
